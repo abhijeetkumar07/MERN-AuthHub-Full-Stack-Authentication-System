@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import Button from "../components/Button.jsx";
 import FormInput from "../components/FormInput.jsx";
 import { useAuth } from "../context/AuthContext.jsx";
+import { getApiErrorMessage } from "../utils/errors.js";
 
 export default function Profile() {
   const { user, updateProfile } = useAuth();
@@ -16,7 +17,7 @@ export default function Profile() {
     try {
       await updateProfile(form);
     } catch (error) {
-      toast.error(error.response?.data?.message || "Profile update failed");
+      toast.error(getApiErrorMessage(error, "Profile update failed"));
     } finally {
       setLoading(false);
     }

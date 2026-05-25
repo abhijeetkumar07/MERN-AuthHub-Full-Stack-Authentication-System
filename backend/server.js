@@ -6,10 +6,12 @@ const express = require("express");
 const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
 const connectDB = require("./config/db");
+const validateEnv = require("./config/validateEnv");
 const authRoutes = require("./routes/auth");
 const { errorHandler, notFound } = require("./middleware/errorMiddleware");
 
 dotenv.config();
+validateEnv();
 connectDB();
 
 const app = express();

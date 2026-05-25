@@ -7,6 +7,7 @@ import Button from "../components/Button.jsx";
 import FormInput from "../components/FormInput.jsx";
 import { useAuth } from "../context/AuthContext.jsx";
 import { pageTransition } from "../animations/pageTransitions.js";
+import { getApiErrorMessage } from "../utils/errors.js";
 
 export default function Register() {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
@@ -21,7 +22,7 @@ export default function Register() {
       await register(form);
       navigate("/dashboard");
     } catch (error) {
-      toast.error(error.response?.data?.message || "Registration failed");
+      toast.error(getApiErrorMessage(error, "Registration failed"));
     } finally {
       setLoading(false);
     }

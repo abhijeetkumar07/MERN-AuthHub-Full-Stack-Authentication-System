@@ -53,10 +53,24 @@ JWT_EXPIRES_IN=7d
 CLIENT_URL=http://localhost:3000
 ```
 
+On Windows PowerShell you can create the file with:
+
+```powershell
+Copy-Item backend\.env.example backend\.env
+```
+
+Replace the placeholder `MONGO_URI` and `JWT_SECRET` values before starting the backend. Registration will fail if the backend is not running or MongoDB Atlas is not configured.
+
 Create `frontend/.env`:
 
 ```env
 VITE_API_URL=http://localhost:5000/api
+```
+
+On Windows PowerShell:
+
+```powershell
+Copy-Item frontend\.env.example frontend\.env
 ```
 
 ## Local Development

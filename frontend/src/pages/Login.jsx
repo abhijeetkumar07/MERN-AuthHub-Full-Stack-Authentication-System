@@ -7,6 +7,7 @@ import Button from "../components/Button.jsx";
 import FormInput from "../components/FormInput.jsx";
 import { useAuth } from "../context/AuthContext.jsx";
 import { pageTransition } from "../animations/pageTransitions.js";
+import { getApiErrorMessage } from "../utils/errors.js";
 
 export default function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -22,7 +23,7 @@ export default function Login() {
       await login(form);
       navigate(location.state?.from?.pathname || "/dashboard");
     } catch (error) {
-      toast.error(error.response?.data?.message || "Login failed");
+      toast.error(getApiErrorMessage(error, "Login failed"));
     } finally {
       setLoading(false);
     }

@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import api from "../utils/api.js";
 import Button from "../components/Button.jsx";
 import FormInput from "../components/FormInput.jsx";
+import { getApiErrorMessage } from "../utils/errors.js";
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -17,7 +18,7 @@ export default function ForgotPassword() {
       const { data } = await api.post("/auth/forgot-password", { email });
       toast.success(data.message);
     } catch (error) {
-      toast.error(error.response?.data?.message || "Reset request failed");
+      toast.error(getApiErrorMessage(error, "Reset request failed"));
     } finally {
       setLoading(false);
     }
