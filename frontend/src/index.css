@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: #070812;
+  color: #f7f8ff;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+.light body,
+html.light body {
+  background: #f6f8ff;
+  color: #101322;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(34, 211, 238, 0.35);
+}
+
+.mesh-bg {
+  background:
+    radial-gradient(circle at 15% 15%, rgba(34, 211, 238, 0.22), transparent 28%),
+    radial-gradient(circle at 85% 10%, rgba(124, 58, 237, 0.28), transparent 30%),
+    radial-gradient(circle at 50% 90%, rgba(16, 185, 129, 0.13), transparent 24%),
+    linear-gradient(135deg, #070812 0%, #0d1021 46%, #111827 100%);
+}
+
+.light .mesh-bg {
+  background:
+    radial-gradient(circle at 15% 15%, rgba(14, 165, 233, 0.2), transparent 28%),
+    radial-gradient(circle at 85% 10%, rgba(124, 58, 237, 0.18), transparent 30%),
+    radial-gradient(circle at 50% 90%, rgba(16, 185, 129, 0.12), transparent 24%),
+    linear-gradient(135deg, #fbfdff 0%, #eef4ff 50%, #f9fbff 100%);
+}
+
+.glass {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(22px);
+}
+
+.light .glass {
+  border-color: rgba(15, 23, 42, 0.09);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.09);
+}
+
+.neon-text {
+  background: linear-gradient(90deg, #f8fafc, #67e8f9, #c4b5fd, #f8fafc);
+  background-size: 220% 220%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.light .neon-text {
+  background-image: linear-gradient(90deg, #0f172a, #0e7490, #6d28d9, #0f172a);
+}
+
+.animated-gradient {
+  background: linear-gradient(110deg, #22d3ee, #8b5cf6, #f472b6, #34d399);
+  background-size: 260% 260%;
+}
+
+.glass-toast {
+  border: 1px solid rgba(255,255,255,0.14) !important;
+  background: rgba(12, 16, 32, 0.78) !important;
+  color: #fff !important;
+  backdrop-filter: blur(20px);
+}
+
+.skeleton {
+  background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.16), rgba(255,255,255,0.06));
+  background-size: 700px 100%;
+}
